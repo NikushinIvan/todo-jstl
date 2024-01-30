@@ -20,7 +20,7 @@ public class MemoryTaskRepoImpl implements TaskRepo {
 
     @Override
     public List<Task> findAll() {
-        return Collections.unmodifiableList(TASKS);
+        return TASKS;
     }
 
     @Override

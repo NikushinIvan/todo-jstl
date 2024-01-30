@@ -17,7 +17,7 @@ public class MemoryUserRepoImpl implements UserRepo {
 
     @Override
     public List<User> findAll() {
-        return Collections.unmodifiableList(USERS);
+        return USERS;
     }
 
     @Override
