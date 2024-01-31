@@ -6,6 +6,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 
 public class MemoryUserRepoImpl implements UserRepo {
     private final static List<User> USERS = new ArrayList<>();
@@ -26,5 +27,10 @@ public class MemoryUserRepoImpl implements UserRepo {
             return false;
         }
         return USERS.add(user);
+    }
+
+    @Override
+    public Optional<User> findByLogin(String login) {
+        return USERS.stream().filter(user -> user.getLogin().equals(login)).findFirst();
     }
 }

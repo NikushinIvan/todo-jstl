@@ -25,6 +25,7 @@ public class UsersServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         List<User> users = userRepo.findAll();
         req.setAttribute("users", users);
+        System.out.println(req.getSession(false).getAttribute("user"));
         req.getServletContext()
                 .getRequestDispatcher("/pages/users.jsp")
                 .forward(req, resp);
