@@ -98,4 +98,16 @@ session.invalidate();
 6. [ ] Сделать кнопку для отметки дела выполненным
 7. [ ] Сделать отдельную страницу для просмотра дела
 
-
+```html
+<c:choose>
+    <c:when test="${user.getRole().equals(RoleType.ADMIN.getRole())}">
+        <a href="users" class="menu-item">Пользователи</a>
+        <a href="createUser" class="menu-item">Создать пользователя</a>
+    </c:when>
+    <c:when test="${user.getRole().equals(RoleType.MODERATOR.getRole())}">
+        <a href="users" class="menu-item">Пользователи</a>
+        <a href="recommendations" class="menu-item">Рекомендации</a>
+        <a href="rates" class="menu-item">Оценки</a>
+    </c:when>
+</c:choose>
+```

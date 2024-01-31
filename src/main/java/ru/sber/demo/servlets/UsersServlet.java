@@ -1,5 +1,6 @@
 package ru.sber.demo.servlets;
 
+import ru.sber.demo.model.user.Role;
 import ru.sber.demo.model.user.User;
 import ru.sber.demo.repo.user.MemoryUserRepoImpl;
 import ru.sber.demo.repo.user.UserRepo;
@@ -10,6 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.List;
 
 @WebServlet("/users")
@@ -29,5 +31,12 @@ public class UsersServlet extends HttpServlet {
         req.getServletContext()
                 .getRequestDispatcher("/pages/users.jsp")
                 .forward(req, resp);
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String login = req.getParameter("login");
+        userRepo.create(new User(10, login, "123", LocalDate.MAX, Role.USER));
+        resp.sendRedirect(req.getContextPath() + "/users");
     }
 }

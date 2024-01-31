@@ -1,5 +1,6 @@
 package ru.sber.demo.repo.user;
 
+import ru.sber.demo.model.user.Role;
 import ru.sber.demo.model.user.User;
 
 import java.time.LocalDate;
@@ -12,8 +13,8 @@ public class MemoryUserRepoImpl implements UserRepo {
     private final static List<User> USERS = new ArrayList<>();
 
     static {
-        USERS.add(new User(1, "qwe", "123", LocalDate.of(1993, 10, 13)));
-        USERS.add(new User(2, "qwer", "123", LocalDate.of(2000, 3, 15)));
+        USERS.add(new User(1, "qwe", "123", LocalDate.of(1993, 10, 13), Role.ADMIN));
+        USERS.add(new User(2, "qwer", "123", LocalDate.of(2000, 3, 15), Role.USER));
     }
 
     @Override

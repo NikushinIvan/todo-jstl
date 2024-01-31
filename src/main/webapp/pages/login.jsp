@@ -15,13 +15,17 @@
     </style>
 </head>
 <body>
-<form class="login_form" method="post" action="login">
-    <div class="login_wrapper">
-        <input type="text" placeholder="Press login..." name="login">
-        <input type="password" placeholder="Press pass.." name="password">
-        <button type="submit">Login</button>
+<%@include file="navbar.jsp" %>
+<div class="login">
+    <div class="container">
+        <form class="login_form" method="post" action="login">
+            <div class="login_wrapper">
+                <input type="text" placeholder="Press login..." name="login">
+                <input type="password" placeholder="Press pass.." name="password">
+                <button type="submit">Login</button>
+            </div>
+        </form>
     </div>
-</form>
-
+</div>
 </body>
 </html>
